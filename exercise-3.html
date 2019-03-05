@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+    <fhead>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Data table Filter - Sarah Lasroma Manalu</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="swapi-people.js"></script>
+    </head>
+    <body>
+		<h1 style="center">Data table Filter - Sarah Lasroma Manalu</h1>
+        <div class="container">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Default</span>
+                    <input type="text" id="toFilter" onkeyup="myFunction()" placeholder="Search anything...">
+                </div>                
+            </div>
+        <table id="myTable" class="table">
+            <div class="row">
+                <fhead>
+                    <tr class="header">
+                        <th scope="col">Nama</th>
+                        <th scope="col">Tinggi</th>
+                        <th scope="col">Massa</th>
+                        <th scope="col">Rambut (Warna)</th>
+                        <th scope="col">Kulit (Warna)</th>
+                        <th scope="col">Iris (Warna)</th>
+                        <th scope="col">Lahir (Tahun)</th>
+                        <th scope="col">Cowok/Cewek</th>
+                    </tr>
+                </fhead>
+                <fbody id="target">
+                    <tr>
+                        <td>Luke Skywalker</td>
+                        <td>172</td>
+                        <td>77</td>
+                        <td>blond</td>
+                        <td>fair</td>
+                        <td>blue</td>
+                        <td>19BBY</td>
+                        <td>male</td>
+                    </tr>
+                    <tr>
+                        <td>C-3PO</td>
+                        <td>167</td>
+                        <td>75</td>
+                        <td>n/a</td>
+                        <td>gold</td>
+                        <td>yellow</td>
+                        <td>112BBY</td>
+                        <td>n/a</td>
+                    </tr>
+                    <tr>
+                        <td>R2-D2</td>
+                        <td>96</td>
+                        <td>32</td>
+                        <td>n/a</td>
+                        <td>white, blue</td>
+                        <td>red</td>
+                        <td>33BBY</td>
+                        <td>n/a</td>
+                    </tr>
+                    <tr>
+                        <td>Darth Vader</td>
+                        <td>202</td>
+                        <td>136</td>
+                        <td>none</td>
+                        <td>white</td>
+                        <td>yellow</td>
+                        <td>41.9BBY</td>
+                        <td>male</td>
+                    </tr>
+                    <tr>
+                        <td>Leia Organa</td>
+                        <td>150</td>
+                        <td>49</td>
+                        <td>brown</td>
+                        <td>light</td>
+                        <td>brown</td>
+                        <td>19BBY</td>
+                        <td>female</td>
+                    </tr>
+                    <tr>
+                        <td>Owen Lars</td>
+                        <td>178</td>
+                        <td>120</td>
+                        <td>brown, grey</td>
+                        <td>light</td>
+                        <td>blue</td>
+                        <td>52BBY</td>
+                        <td>male</td>
+                    </tr>
+                    <tr>
+                        <td>Beru Whitesun lars</td>
+                        <td>165</td>
+                        <td>75</td>
+                        <td>brown</td>
+                        <td>light</td>
+                        <td>blue</td>
+                        <td>47BBY</td>
+                        <td>female</td>
+                    </tr>
+                    <tr>
+                        <td>R5-D4</td>
+                        <td>97</td>
+                        <td>32</td>
+                        <td>n/a</td>
+                        <td>white, red</td>
+                        <td>red</td>
+                        <td>unknown</td>
+                        <td>n/a</td>
+                    </tr>
+                    <tr>
+                        <td>Biggs Darklighter</td>
+                        <td>183</td>
+                        <td>84</td>
+                        <td>black</td>
+                        <td>light</td>
+                        <td>brown</td>
+                        <td>24BBY</td>
+                        <td>male</td>
+                    </tr>
+                    <tr>
+                        <td>Obi-Wan Kenobi</td>
+                        <td>182</td>
+                        <td>77</td>
+                        <td>auburn, white</td>
+                        <td>fair</td>
+                        <td>blue-gray</td>
+                        <td>57BBY</td>
+                        <td>male</td>
+                    </tr>
+                </fbody>
+            </div>
+        </div>
+        </table>
+
+        <script>
+            function myFunction() {
+            // Declare variables
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("toFilter");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+                }
+            }
+            }
+        </script>
+    </body> 
+</html>
